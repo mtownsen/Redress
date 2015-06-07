@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bill.name %>
+</p>
+<% if user_signed_in? %>
+    <% if @bill.followed_by?(current_user) %>
+        <%= link_to 'unfollow', unfollow_bill_path(@bill), method: :put %>
+    <% else %>
+        <%= link_to 'follow', follow_bill_path(@bill), method: :put %>
+    <% end %>
+<% end %>
+<%= link_to 'Back', bills_path %>
