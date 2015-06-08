@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
-  resources :bills do
-    member do
-      put "follow", to: "bills#follow"
-      put "unfollow", to: "bills#unfollow"
-    end
-  end
-  get '/followed', to: 'bills#followed'
+get '/legislation', to: 'legislation#allbills'
+  get '/followed', to: 'legislation#followed'
   resources :politicians
-  root 'bills#index'
+  root 'legislation#allbills'
   devise_for :users, :controllers => { registrations: 'registrations' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

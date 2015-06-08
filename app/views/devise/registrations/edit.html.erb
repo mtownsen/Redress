@@ -8,9 +8,13 @@
       <%= f.text_field :name, autofocus: true, class: 'form-control' %>
     </div>
 
+    <div class="form-group">
+      <%= f.label :zipcode %><br />
+      <%= f.number_field(:zipcode, in: 10000..99999, step: 1, class: 'form-control') %>
+    </div>
   <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    <%= f.email_field :email, class: 'form-control' %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
